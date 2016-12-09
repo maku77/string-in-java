@@ -92,5 +92,8 @@ if __name__ == '__main__':
     for name in glob.iglob(filename, recursive=True):
         with open(name, encoding='utf-8') as f:
             for literal in iter_literals(filter_java_comment(f.read())):
-                print(literal)
+                try:
+                    print(literal)
+                except:
+                    pass  # Ignore encoding related error
 
